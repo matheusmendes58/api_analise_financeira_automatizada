@@ -11,11 +11,12 @@ DBSESSION = scoped_session(sessionmaker(bind=ENGINE_ALCHEMY, expire_on_commit=Fa
 SESSION =  scoped_session(sessionmaker(bind=ENGINE_ALCHEMY))
 BASE = declarative_base()
 
-def create_table():
+def create_all():
     """
         Create table in database.
         However, if it has already been created, it can be used as a connection test.
 
         :return: None
         """
-    pass
+    from models.database.registry_db import RegistryAI
+    BASE.metadata.create_all(ENGINE_ALCHEMY)
