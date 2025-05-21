@@ -24,4 +24,10 @@ class AllSettings:
         self.hugginface_api_url = 'https://api-inference.huggingface.co/models/google/flan-t5-large'
         self.hugginface_token = ''
 
+        #Xlsx file
+        #choose a number that will read lines from the file, remembering that as this is a beta version,
+        # the ideal is to leave 20 lines for reading to avoid errors.
+
+        self.lines_for_read = 20
+
 settings = AllSettings()
