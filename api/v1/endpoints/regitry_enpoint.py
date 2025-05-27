@@ -1,6 +1,6 @@
 #Endpoint focused on software auditing
 
-from typing import Optional, List
+from typing import List, Union
 from fastapi import APIRouter, status
 from models.database.registry_db import RegistryAI
 from schemas.ai_schema import AiSchema
@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.get('/registry', status_code=status.HTTP_200_OK, response_model=List[AiSchema])
 
-async def get_all_registry() -> Optional[list, dict]:
+async def get_all_registry() -> Union[list, dict]:
     """
     Specific endpoint to bring all records from the database
 
