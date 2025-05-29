@@ -10,7 +10,14 @@ from services.ai_cohere.chat_cohere import AiCohereChat
 
 router = APIRouter()
 
-@router.post('/send', status_code=status.HTTP_201_CREATED, response_model=dict)
+@router.post('/send',
+             status_code=status.HTTP_201_CREATED,
+             response_model=dict,
+             summary='Send a file',
+             description='Sends a file to the AI to perform a financial analysis '
+                         'and provide a response from this analysis.',
+             response_description='A dict with response from AI'
+             )
 
 async def send_file(service: str = None, file: UploadFile = File()) -> dict:
     """
@@ -95,7 +102,7 @@ async def send_file(service: str = None, file: UploadFile = File()) -> dict:
         RegistryAI.insert_registry_ia(
             file_name=file_name,
             extension_file_name='xlsx',
-            url_ia=settings.hugginface_api_url,
+            url_ia='COHERE',
             prompt_ia=prompt.prompt,
             status='OK',
             status_api='201',

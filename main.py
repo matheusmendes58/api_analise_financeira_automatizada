@@ -14,7 +14,7 @@ app = FastAPI(
     contact={
         'name': 'Matheus Mendes Santos',
     },
-    docs_url="/documentation ",        # Swagger UI
+    docs_url="/documentation",        # Swagger UI
     redoc_url="/redoc-custom",       # ReDoc
     openapi_url="/openapi.json"      # JSON do schema
 )

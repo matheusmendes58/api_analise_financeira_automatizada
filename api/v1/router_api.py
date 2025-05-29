@@ -1,5 +1,6 @@
-from fastapi import APIRouter
+#Routes to api
 
+from fastapi import APIRouter
 from api.v1.endpoints import response_ia_endpoint
 from api.v1.endpoints import regitry_enpoint
 

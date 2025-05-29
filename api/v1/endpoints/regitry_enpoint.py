@@ -7,7 +7,13 @@ from schemas.ai_schema import AiSchema
 
 router = APIRouter()
 
-@router.get('/registry', status_code=status.HTTP_200_OK, response_model=List[AiSchema])
+@router.get('/registry',
+            status_code=status.HTTP_200_OK,
+            response_model=List[AiSchema],
+            summary='List all records',
+            description='This endpoint returns all records from the database.',
+            response_description='A list or dict'
+            )
 
 async def get_all_registry() -> Union[list, dict]:
     """
@@ -23,7 +29,13 @@ async def get_all_registry() -> Union[list, dict]:
 
     return records
 
-@router.get('/registry/last', status_code=status.HTTP_200_OK, response_model=AiSchema)
+@router.get('/registry/last',
+            status_code=status.HTTP_200_OK,
+            response_model=AiSchema,
+            summary='Last record in the database.',
+            description='This endpoint brings the last record that was input into the database.',
+            response_description='A dict containing a record'
+            )
 
 async def get_last_registry() -> dict:
     """
