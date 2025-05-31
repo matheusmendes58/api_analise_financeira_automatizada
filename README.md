@@ -76,6 +76,8 @@ Upload a xlsx file to the api endpoint, this api will process the file to send t
 
 ## Database tables
 
+![UML](doc/DB.PNG)
+
 > registry_ia_error_or_success
 
 | Column name         | Data Type     | Restrictions           | Description                                |
@@ -92,7 +94,8 @@ Upload a xlsx file to the api endpoint, this api will process the file to send t
 | ai_error               | TEXT              |                       | Error returned by the AI                   |
 | ai_text_success        | TEXT              |                       | Text returned by the AI in case of success |
 
-
+## UML
+![UML](doc/UML.png)
 ## General notes
 
 ### This api is in version 1.0.0 and has a lot to be improved in terms of code and api response. Gradually, improvements will be made
