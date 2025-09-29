@@ -1,12 +1,12 @@
 #Endpoint of response AI
-#TODO testar erro de api
-#TODO Registrar erro em database
+
 from core.config import settings
 from fastapi import UploadFile, File, APIRouter, status
 from models.database.registry_db import RegistryAI
 from services.ai_prompts.prompt import PromptIA
 from services.ai_cohere.chat_cohere import AiCohereChat
 from services.xlsx_data.read_xlsx import FileXlsx
+from utils.enum_status import StatusDbEnum, StatusApiEnum
 
 router = APIRouter()
 
@@ -37,10 +37,10 @@ async def send_file(file: UploadFile = File()) -> dict:
     if type(checker) == dict:
         RegistryAI.insert_registry_ia(
             file_name=file_name,
-            extension_file_name='Unknown',
+            extension_file_name=StatusDbEnum.extension_file_name_error.value,
             url_ia=settings.hugginface_api_url,
-            status='OK',
-            status_api='201',
+            status=StatusDbEnum.error_db.value,
+            status_api=StatusApiEnum.status_error_422.value,
             error_api=str(checker.get('file')),
         )
 
@@ -58,11 +58,26 @@ async def send_file(file: UploadFile = File()) -> dict:
 
     result = ia.chat_cohere(prompt=prompt.prompt_cohere)
 
-    RegistryAI.insert_registry_ia(
-        file_name=file_name,
-        extension_file_name='xlsx',
-        url_ia='COHERE',
-        prompt_ia=prompt.prompt_cohere,
-        status='OK',
-        status_api='201',
-        ai_text_success=str(result))
+    if result.get('analise'):
+
+        RegistryAI.insert_registry_ia(
+            file_name=file_name,
+            extension_file_name=StatusDbEnum.extension_file_name_ok.value,
+            url_ia='COHERE',
+            prompt_ia=prompt.prompt_cohere,
+            status=StatusDbEnum.ok_db.value,
+            status_api=StatusApiEnum.status_ok_201.value,
+            ai_text_success=str(result))
+
+    else:
+
+        RegistryAI.insert_registry_ia(
+            file_name=file_name,
+            extension_file_name=StatusDbEnum.extension_file_name_ok.value,
+            url_ia='COHERE',
+            prompt_ia=prompt.prompt_cohere,
+            status=StatusDbEnum.ok_db.value,
+            status_api=StatusApiEnum.status_error_400.value,
+            ai_text_success=str(result))
+
+    return result
