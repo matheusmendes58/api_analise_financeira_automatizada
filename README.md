@@ -1,7 +1,7 @@
 # API for Automated Financial Analysis with Artificial Intelligence
 
 ```bash
-VERSION = 1.0.0
+VERSION = 1.1.0
 ```
 
 Development of an API in Python for automated financial analysis using Artificial Intelligence. The application uses natural language models to identify possible signs of financial crisis in companies based on reading financial files, such as spreadsheets in XLSX format.
@@ -54,9 +54,9 @@ To retrieve the last data inserted into the database use:
 
 To analyze the file use:
 
-Details - in body put form-data, key file and in value put the file to be analyzed, in the last part of the url (?service=cohere) put the service you want to use **cohere** or **huggingface**.
+> POST - http://127.0.0.1:8000/analise/rpa/cohere/send
 
-> POST - http://127.0.0.1:8000/analise/rpa/ai/send?service=cohere
+> POST - http://127.0.0.1:8000/analise/rpa/hugg/send
 
 To see the **sweeger** api documentation:
 
@@ -98,4 +98,4 @@ Upload a xlsx file to the api endpoint, this api will process the file to send t
 ![UML](doc/UML.png)
 ## General notes
 
-### This api is in version 1.0.0 and has a lot to be improved in terms of code and api response. Gradually, improvements will be made
+### This api is in version 1.1.0 and has a lot to be improved in terms of code and api response. Gradually, improvements will be made
