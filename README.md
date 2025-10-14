@@ -1,7 +1,7 @@
 # API for Automated Financial Analysis with Artificial Intelligence
 
 ```bash
-VERSION = 1.1.0
+VERSION = 1.2.2
 ```
 
 Development of an API in Python for automated financial analysis using Artificial Intelligence. The application uses natural language models to identify possible signs of financial crisis in companies based on reading financial files, such as spreadsheets in XLSX format.
@@ -19,8 +19,8 @@ By making financial analysis more democratic, the project contributes to bankrup
 
 - Have mysql installed on your machine
 - Have a database created called **api_analise_financeira_automatizada**
-- Create the following huggingface and cohere accounts [huggingface](https://huggingface.co/), [cohere](https://dashboard.cohere.com/welcome/login)
-- Use the tokens created in huggingface and cohere by adding them to the variables **self.hugginface_token**, **self.cohere_token** inside  config.py
+- Create the following huggingface and cohere accounts [huggingface](https://huggingface.co/), [cohere](https://dashboard.cohere.com/welcome/login), [google](https://aistudio.google.com/welcome?utm_source=google&utm_medium=cpc&utm_campaign=FY25-global-DR-gsem-BKWS-1710442&utm_content=text-ad-none-any-DEV_c-CRE_726176646944-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt-Gemini-Gemini%20API-KWID_2262542020022-kwd-2262542020022&utm_term=KW_google%20gemini%20api-ST_google%20gemini%20api&gclsrc=aw.ds&gad_source=1&gad_campaignid=21026872772&gbraid=0AAAAACn9t66r5ypyngt-gokY0M4og4whp&gclid=EAIaIQobChMI-Y-lp5GkkAMV7VhIAB3Z1hNcEAAYASAAEgJlHfD_BwE))
+- Use the tokens created in huggingface, cohere and google by adding them to the variables **self.hugginface_token**, **self.cohere_token** , **self.google_token** inside  config.py
 
 ## Start the software
 
@@ -58,6 +58,8 @@ To analyze the file use:
 
 > POST - http://127.0.0.1:8000/analise/rpa/hugg/send
 
+> POST - http://127.0.0.1:8000/analise/rpa/google/send
+
 To see the **sweeger** api documentation:
 
 > GET - http://127.0.0.1:8000/documentation
@@ -69,6 +71,8 @@ To see the **sweeger** api documentation:
 - Huggingface - There are a number of AI models to use. We're using one from google, but this model has a lot of errors in the api.
 
 - Cohere - We use cohere chat, which is very efficient and free of charge. We recommend using this service on the endpoint.
+
+- Google - we use Google gemini, witch is very efficient and free of charge. We recommend using this service on the endpoint.
 
 ## Business rule
 
@@ -96,6 +100,9 @@ Upload a xlsx file to the api endpoint, this api will process the file to send t
 
 ## UML
 ![UML](doc/UML.png)
+
+### Outdated uml
+
 ## General notes
 
-### This api is in version 1.1.0 and has a lot to be improved in terms of code and api response. Gradually, improvements will be made
+### This api is in version 1.2.2 and has a lot to be improved in terms of code and api response. Gradually, improvements will be made
