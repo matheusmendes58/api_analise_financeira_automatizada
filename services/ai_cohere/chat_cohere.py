@@ -18,10 +18,6 @@ class AiCohereChat:
         :return: Response of AI
         """
 
-        try:
-            response = self.cohere.chat(model='command-a-03-2025',  message=prompt)
-
-        except:
-            return {'error': 'error in cohere model'}
+        response = self.cohere.chat(model='command-a-03-2025',  message=prompt)
 
         return {'analise': response.text}

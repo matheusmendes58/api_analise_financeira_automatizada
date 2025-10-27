@@ -27,3 +27,13 @@ class PromptIA:
         {self.data_text}
         
         """
+
+        self.prompt_google = f"""
+        Você é um analista financeiro. Analise os dados abaixo e indique se há sinais de crise financeira,
+        como prejuízos recorrentes, aumento de dívidas, queda de receita ou baixa liquidez, explique cada dado de maneira
+        que leigos entendam.
+        Dados financeiros:
+
+        {self.data_text}                
+        
+        """
