@@ -20,7 +20,8 @@ By making financial analysis more democratic, the project contributes to bankrup
 - Have mysql installed on your machine
 - Have a database created called **api_analise_financeira_automatizada**
 - Create the following huggingface and cohere accounts [huggingface](https://huggingface.co/), [cohere](https://dashboard.cohere.com/welcome/login), [google](https://aistudio.google.com/welcome?utm_source=google&utm_medium=cpc&utm_campaign=FY25-global-DR-gsem-BKWS-1710442&utm_content=text-ad-none-any-DEV_c-CRE_726176646944-ADGP_Hybrid%20%7C%20BKWS%20-%20EXA%20%7C%20Txt-Gemini-Gemini%20API-KWID_2262542020022-kwd-2262542020022&utm_term=KW_google%20gemini%20api-ST_google%20gemini%20api&gclsrc=aw.ds&gad_source=1&gad_campaignid=21026872772&gbraid=0AAAAACn9t66r5ypyngt-gokY0M4og4whp&gclid=EAIaIQobChMI-Y-lp5GkkAMV7VhIAB3Z1hNcEAAYASAAEgJlHfD_BwE))
-- Use the tokens created in huggingface, cohere and google by adding them to the variables **self.hugginface_token**, **self.cohere_token** , **self.google_token** inside  config.py
+- Create .env file adding variables USER_DB, PWD_DB, HOST_DB, DB (DB = api_analise_financeira_automatizada), HUGGINFACE_TOKEN, COHERE_TOKEN, GOOGLE_TOKEN
+- Use the tokens created in huggingface, cohere and google by adding them to the variables **HUGGINFACE_TOKEN**, **COHERE_TOKEN** , **GOOGLE_TOKEN** inside  ***.env***
 
 ## Start the software
 

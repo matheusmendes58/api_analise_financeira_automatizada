@@ -1,5 +1,10 @@
 # All settings in project is here example passwords, string connections, etc
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 class AllSettings:
     """
     General settings from application
@@ -13,18 +18,18 @@ class AllSettings:
 
         #Db
 
-        self.user_db = 'root'
-        self.pwd_db = '12345'
-        self.host_db = 'localhost'
-        self.db = 'api_analise_financeira_automatizada'
+        self.user_db = os.getenv('USER_DB')
+        self.pwd_db = os.getenv('PWD_DB')
+        self.host_db = os.getenv('HOST_DB')
+        self.db = os.getenv('DB')
         self.connect_db = f'mysql+pymysql://{self.user_db}:{self.pwd_db}@{self.host_db}/{self.db}'
 
         #AI
 
         self.hugginface_api_url = 'https://api-inference.huggingface.co/models/google/flan-t5-large'
-        self.hugginface_token = ''
-        self.cohere_token = ''
-        self.google_token = ''
+        self.hugginface_token = os.getenv('HUGGINFACE_TOKEN')
+        self.cohere_token = os.getenv('COHERE_TOKEN')
+        self.google_token = os.getenv('GOOGLE_TOKEN')
 
         #Xlsx file
         #choose a number that will read lines from the file, remembering that as this is a beta version,
